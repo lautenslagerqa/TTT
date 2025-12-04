@@ -61,6 +61,7 @@ public class GUI extends JFrame {
         frame = new JFrame(NAME);
         frame.setLocation(X_LOC, Y_LOC);
         frame.setSize(WIDTH, HEIGHT);
+        //frame.setBackground(Color.BLACK);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
     }
@@ -71,6 +72,7 @@ public class GUI extends JFrame {
     }
 
     private void displayFrame() {
+        frame.getContentPane().setBackground(Color.BLUE);
         frame.setVisible(true);
     }
 
@@ -79,8 +81,11 @@ public class GUI extends JFrame {
         resultLabel.setText("Player: X  AI: O");
         resultLabel.setSize(250,500);
         resultLabel.setName("resultLabel");
-
+        resultLabel.setBackground(Color.gray);
+        resultLabel.setOpaque(true);
+        resultLabel.setForeground(Color.WHITE);
         JPanel resultPanel = new JPanel();
+        resultPanel.setBackground(Color.GRAY);
         resultPanel.add(resultLabel);
 
         frame.add(resultPanel, BorderLayout.NORTH);
@@ -214,7 +219,7 @@ public class GUI extends JFrame {
     
     }
     public static void main(String[] args) {
-        // Ensure GUI creation is done on the Event Dispatch Thread
+        
         GUI g = new GUI();
     }
 }
