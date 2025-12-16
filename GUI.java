@@ -6,8 +6,8 @@ import javax.swing.*;
 public class GUI extends JFrame {
     private static final int X_LOC = 100;
     private static final int Y_LOC = 100;
-    private static final int WIDTH = 600;
-    private static final int HEIGHT = 500;
+    private static final int WIDTH = 700;
+    private static final int HEIGHT = 600;
     private static final String NAME = "Tic Tac Toe";
     private static TTT ttt = new TTT();
     private static boolean playerMove = true;
@@ -101,6 +101,8 @@ public class GUI extends JFrame {
         JButton button20 = new JButton(ttt.getSquare(2,0));
         JButton button21 = new JButton(ttt.getSquare(2,1));
         JButton button22 = new JButton(ttt.getSquare(2,2));
+        JButton rButton = new JButton("Reset Board");
+        JPanel rPanel = new JPanel();
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridLayout(3, 3));
         button00.setToolTipText(ttt.getSquare(0, 0));
@@ -121,9 +123,9 @@ public class GUI extends JFrame {
         buttonPanel.add(button20);
         buttonPanel.add(button21);
         buttonPanel.add(button22);
-
+        rPanel.add(rButton);
         frame.add(buttonPanel, BorderLayout.CENTER);
-
+        frame.add(rPanel, BorderLayout.SOUTH);
         button00.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -210,6 +212,15 @@ public class GUI extends JFrame {
                 button22.setText("X");
                 ttt.makeMove(2, 2, true);
                 playerMove=ttt.state;
+                button22.revalidate();
+                button22.repaint();
+            }
+        });
+        rButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                
+                ttt.reset();
                 button22.revalidate();
                 button22.repaint();
             }

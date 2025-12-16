@@ -81,6 +81,14 @@ public class TTT {
         }
         //return 0;
     }
+    public void reset() {
+        for (int i=0; i< board.length; i++) {
+            for (int j=0;j<board.length;j++) {
+                board[i][j]='-';
+            }
+
+        }
+    }
     public int[] bestMove(char[][] b, boolean max) {
         int[] r = new int[2]; 
         if (max) {
